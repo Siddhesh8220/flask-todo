@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-heading {
+  margin: 0;
+  color: white;
+}
+
+.container {
+  height: 100vh;
+}
+
+.todo-form {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.card {
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+  margin: 20px;
+}
+
+.nav {
+  display: block;
+  width: 100%;
+  background-color: blueviolet;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.content {
+  margin: auto;
+  max-width: 800px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+li {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  border-bottom: 0.5px solid #bbb;
+}
+
+.hidden {
+  display: none;
+}
+
+.list {
+  height: 100%;
+}
+
+button {
+  display: inline-block;
+  height: 40px;
+  border-radius: 0.25rem;
+  margin-left: 5px;
+}
+
+input[type="text"] {
+  display: inline-block;
+  flex-grow: 1;
+  height: 40px;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  padding: 5px;
+  width: 0;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+#inner-wrapper {
+  min-width: 0;
+}
+
+/* That's because there is a circular definition:
+
+The size of the #inner-wrapper depends on the size of the input and the button via min-width: auto.
+The sizes of the input and the button depend on the size of #inner-wrapper via flex properties.
+Therefore, #inner-wrapper is sized according to the intrinsic width of the button and the input.
+
+If you don't want that, you can break the circular definition manually:
+
+Make #inner-wrapper ignore the sizes of its contents
+
+#inner-wrapper {
+  min-width: 0;
+}
+Show code snippet
+
+Make the input and button ignore their intrinsic width.
+
+input, button {
+  width: 0;
+} */
