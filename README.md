@@ -22,7 +22,7 @@ set FLASK_ENV=development
 ```
 Run the app
 ```
-$ flask run
+flask run
 ```
 
 1. Fetch data on load
