@@ -1,6 +1,6 @@
 async function fetchTodo() {
   try {
-    const res = await axios.get(`http://localhost:5000/todos`, {
+    const res = await axios.get(`http://127.0.0.1:5000/todos`, {
       "Content-Type": "application/json",
     });
     const element = document.getElementById("todolists");
@@ -46,7 +46,7 @@ async function createTodo() {
     new_todo = document.getElementById("newTodo").value;
     let payload = { description: new_todo, iscomplete: "false" };
     const res = await axios.post(
-      `http://localhost:5000/todos/create`,
+      `http://127.0.0.1:5000/todos/create`,
       payload,
       {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ async function updateTodo(id) {
     var descriptionVal = parent.children[1].value;
     let payload = { description: descriptionVal, iscomplete: iscompleteVal };
     const res = await axios.put(
-      `http://localhost:5000/todos/${id}/edit`,
+      `http://127.0.0.1:5000/todos/${id}/edit`,
       payload,
       {
         "Content-Type": "application/json",
@@ -82,8 +82,8 @@ async function updateTodo(id) {
 async function deleteTodo(id) {
   try {
     console.log(id);
-    console.log(`http://localhost:5000/todos/${id}`);
-    const res = await axios.delete(`http://localhost:5000/todos/${id}`, {
+    console.log(`http://127.0.0.1/todos/${id}`);
+    const res = await axios.delete(`http://127.0.0.1:5000/todos/${id}`, {
       "Content-Type": "application/json",
     });
     fetchTodo();
